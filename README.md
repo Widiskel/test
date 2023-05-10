@@ -1,4 +1,5 @@
 ## Product table Schema
+```
 public function up()
 {
     Schema::create('produk', function (Blueprint $table) {
@@ -18,8 +19,10 @@ public function down()
 {
     Schema::dropIfExists('produk');
 }
+```
 
 ## Product table Seeder
+```
 public function run()
 {
     $dummy = [
@@ -35,4 +38,4 @@ public function run()
     }
 
 }
-
+```
