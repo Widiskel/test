@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'WebController@index')->name('index');
-Route::get('/create', 'WebController@create')->name('create');
-Route::post('/create', 'WebController@store')->name('store');
-Route::get('/edit/{id}', 'WebController@edit')->name('edit');
-Route::post('/edit/{id}', 'WebController@update')->name('update');
-Route::get('/delete/{id}', 'WebController@destroy')->name('destroy');
+
+Route::group(['prefix' => '/', 'as' => 'dashboard.'], function () {
+    Route::get('/', 'DashboardController@index')->name('index');
+    Route::get('/create', 'DashboardController@create')->name('create');
+    Route::post('/store', 'DashboardController@store')->name('store');
+    Route::get('/edit/{id}', 'DashboardController@edit')->name('edit');
+    Route::post('/update/{id}', 'DashboardController@update')->name('update');
+    Route::get('/update/{id}', 'DashboardController@update')->name('update');
+});
+
